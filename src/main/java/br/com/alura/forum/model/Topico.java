@@ -9,7 +9,8 @@ public class Topico {
 	private Long id;
 	private String titulo;
 	private String mensagem;
-	private LocalDateTime dataCriacao = LocalDateTime.now();
+	//private LocalDateTime dataCriacao = LocalDateTime.now();
+	private String dataCriacao;
 	private StatusTopico status = StatusTopico.NAO_RESPONDIDO;
 	private Usuario autor;
 	private Curso curso;
@@ -70,11 +71,20 @@ public class Topico {
 		this.mensagem = mensagem;
 	}
 
-	public LocalDateTime getDataCriacao() {
+
+/*	public LocalDateTime getDataCriacao() {
 		return dataCriacao;
 	}
 
 	public void setDataCriacao(LocalDateTime dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}*/
+
+	public String getDataCriacao() {
+		return dataCriacao;
+	}
+
+	public void setDataCriacao(String dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
 
