@@ -5,8 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CursoRepository extends JpaRepository<Curso, Long> {
 
-    static Curso findByNome(String nomeCurso) {
+    Curso findByNome(String nome);
 
-        return null;
-    }
 }
