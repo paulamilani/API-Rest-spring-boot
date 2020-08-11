@@ -1,20 +1,29 @@
 package br.com.alura.forum.model;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Topico {
 
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String titulo;
 	private String mensagem;
-	//private LocalDateTime dataCriacao = LocalDateTime.now();
-	private String dataCriacao;
+	private LocalDateTime dataCriacao = LocalDateTime.now();
+	@Enumerated(EnumType.STRING)
 	private StatusTopico status = StatusTopico.NAO_RESPONDIDO;
+	@ManyToOne
 	private Usuario autor;
+	@ManyToOne
 	private Curso curso;
+	@OneToMany(mappedBy = "topico")
 	private List<Resposta> respostas = new ArrayList<>();
+
+	public Topico() {
+	}
 
 	public Topico(String titulo, String mensagem, Curso curso) {
 		this.titulo = titulo;
@@ -71,20 +80,11 @@ public class Topico {
 		this.mensagem = mensagem;
 	}
 
-
-/*	public LocalDateTime getDataCriacao() {
+	public LocalDateTime getDataCriacao() {
 		return dataCriacao;
 	}
 
 	public void setDataCriacao(LocalDateTime dataCriacao) {
-		this.dataCriacao = dataCriacao;
-	}*/
-
-	public String getDataCriacao() {
-		return dataCriacao;
-	}
-
-	public void setDataCriacao(String dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
 
@@ -119,5 +119,4 @@ public class Topico {
 	public void setRespostas(List<Resposta> respostas) {
 		this.respostas = respostas;
 	}
-
 }

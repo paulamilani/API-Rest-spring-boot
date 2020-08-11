@@ -1,5 +1,5 @@
 # API-Rest-spring-boot
 
-Projeto spring bot parte 1 - cosntruindo API REST
+Projeto spring boot parte 1 - construindo API REST
 ALURA
 
